@@ -9,8 +9,7 @@ func _ready():
 	for camera in cameras:
 		if null != camera:
 			camera.current = false
-	if(len(cameras) > current_controller+1):
-		cameras[current_controller].make_current()
+	if(len(cameras) > current_controller+1):		cameras[current_controller].make_current()
 
 
 func _process(_delta):
@@ -26,7 +25,7 @@ func _process(_delta):
 					cameras[current_controller].make_current()
 				else:
 					cameras[index].current = false
-					cameras[index].draw_camera_logic = false
+					#cameras[index].draw_camera_logic = false
 		#make sure we have an active controller
 		if cameras[current_controller] == null:
 			for index in len(cameras):
@@ -34,6 +33,6 @@ func _process(_delta):
 					current_controller = index
 					cameras[current_controller].make_current()
 					
-			
+		print(cameras[current_controller])
 		
 	
